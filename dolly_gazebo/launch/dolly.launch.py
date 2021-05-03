@@ -30,6 +30,7 @@ def generate_launch_description():
 
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
     pkg_dolly_gazebo = get_package_share_directory('dolly_gazebo')
+    pkg_teleop= get_package_share_directory('teleop_twist_joy')
 
     # Gazebo launch
     gazebo = IncludeLaunchDescription(
@@ -39,14 +40,19 @@ def generate_launch_description():
     )
 
     # Follow node
-    follow = Node(
-        package='dolly_follow',
-        executable='dolly_follow',
-        output='screen',
-        remappings=[
-            ('cmd_vel', '/dolly/cmd_vel'),
-            ('laser_scan', '/dolly/laser_scan')
-        ]
+    # follow = Node(
+     #    package='dolly_follow',
+      #   executable='dolly_follow',
+       #  output='screen',
+        # remappings=[
+         #    ('cmd_vel', '/dolly/cmd_vel'),
+          #   ('laser_scan', '/dolly/laser_scan')
+        # ]
+    # )
+    launch_teleop= IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_teleop, 'launch', 'teleop-launch.py'),
+        )
     )
 
     # RViz
@@ -60,11 +66,11 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(
           'world',
-          default_value=[os.path.join(pkg_dolly_gazebo, 'worlds', 'dolly_empty.world'), ''],
+          default_value=[os.path.join(pkg_dolly_gazebo, 'worlds', 'dolly_city.world'),''],
           description='SDF world file'),
         DeclareLaunchArgument('rviz', default_value='true',
                               description='Open RViz.'),
         gazebo,
-        follow,
-        rviz
+        rviz,
+        launch_teleop
     ])
