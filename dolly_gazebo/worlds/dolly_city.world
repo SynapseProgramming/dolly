@@ -382,8 +382,7 @@
   </link>
 </model>
 
-
-      <!-- East -->
+<!--
       <model name="sidewalk_7">
   <static>true</static>
   <pose>0 0 0 0 0 0</pose>
@@ -455,7 +454,7 @@
     </collision>
   </link>
 </model>
-
+-->
       <!-- West -->
 
         <model name="sidewalk_8">
@@ -502,7 +501,7 @@
 
 
       <!-- South -->
-
+<!--
         <model name="sidewalk_9">
   <static>true</static>
   <pose>0 0 0 0 0 0</pose>
@@ -518,7 +517,7 @@
           <point>-40.95450849718747 3.7244717418524234</point>
           <point>-40.8 3.7</point>
           <point>-38.8 3.7</point>
-          <point>-38.645491502812526 3.7244717418524234</point>
+          <point>-38.645491502812526 3.7244717418524234l</point>
           <point>-38.50610737385376 3.7954915028125265</point>
           <point>-38.395491502812526 3.9061073738537635</point>
           <point>-38.32447174185242 4.045491502812527</point>
@@ -543,10 +542,11 @@
     </visual>
   </link>
 </model>
-
+-->
 
 
       <!-- North -->
+      <!--
       <model name="sidewalk_10">
   <static>true</static>
   <pose>0 0 0 0 0 0</pose>
@@ -587,7 +587,7 @@
     </visual>
   </link>
 </model>
-
+  -->
 
       <!-- East -->
       <model name="sidewalk_11">
